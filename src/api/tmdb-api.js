@@ -8,12 +8,14 @@ export const getMovies = async () => {
     return response.json();
   };
 
-  export const getUpcomingMovies = () => {
-    return fetch(
+  export const getUpcomingMovies = async () => {
+    const response = await fetch(
         `https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&page=1`
-      )
-        .then(res => res.json())
-        .then(json => json.results);
+        );
+        if (!response.ok) {
+          throw new Error(response.json().message);
+        }
+        return response.json();
     };
   
     export const getMovie = async ( args ) => {
