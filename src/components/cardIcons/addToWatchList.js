@@ -3,7 +3,7 @@ import React from "react";
 
 const WatchListAddIcon = ({ movie }) => {
     return (
-      <PlaylistAddIcon color="primary" fontSize="medium" />
+      <PlaylistAddIcon color="primary" fontSize="large" />
     );
   };
   
